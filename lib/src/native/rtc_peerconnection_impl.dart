@@ -311,7 +311,7 @@ class RTCPeerConnectionNative extends RTCPeerConnection {
     try {
       await _channel.invokeMethod('setLocalDescription', <String, dynamic>{
         'peerConnectionId': _peerConnectionId,
-        'description': description.toMap(),
+        'description': description.toJson(),
       });
     } on PlatformException catch (e) {
       throw 'Unable to RTCPeerConnection::setLocalDescription: ${e.message}';
@@ -323,7 +323,7 @@ class RTCPeerConnectionNative extends RTCPeerConnection {
     try {
       await _channel.invokeMethod('setRemoteDescription', <String, dynamic>{
         'peerConnectionId': _peerConnectionId,
-        'description': description.toMap(),
+        'description': description.toJson(),
       });
     } on PlatformException catch (e) {
       throw 'Unable to RTCPeerConnection::setRemoteDescription: ${e.message}';
@@ -372,7 +372,7 @@ class RTCPeerConnectionNative extends RTCPeerConnection {
   Future<void> addCandidate(RTCIceCandidate candidate) async {
     await _channel.invokeMethod('addCandidate', <String, dynamic>{
       'peerConnectionId': _peerConnectionId,
-      'candidate': candidate.toMap(),
+      'candidate': candidate.toJson(),
     });
   }
 

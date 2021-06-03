@@ -208,12 +208,12 @@ class RTCPeerConnectionWeb extends RTCPeerConnection {
 
   @override
   Future<void> setLocalDescription(RTCSessionDescription description) async {
-    await _jsPc.setLocalDescription(description.toMap());
+    await _jsPc.setLocalDescription(description.toJson());
   }
 
   @override
   Future<void> setRemoteDescription(RTCSessionDescription description) async {
-    await _jsPc.setRemoteDescription(description.toMap());
+    await _jsPc.setRemoteDescription(description.toJson());
   }
 
   @override
@@ -312,7 +312,7 @@ class RTCPeerConnectionWeb extends RTCPeerConnection {
       );
 
   html.RtcIceCandidate _iceToJs(RTCIceCandidate c) =>
-      html.RtcIceCandidate(c.toMap());
+      html.RtcIceCandidate(c.toJson());
 
   RTCSessionDescription _sessionFromJs(html.RtcSessionDescription? sd) =>
       RTCSessionDescription(sd?.sdp, sd?.type);
