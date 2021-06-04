@@ -1,21 +1,21 @@
 class RTCIceCandidate {
-  const RTCIceCandidate(this.candidate, this.sdpMid, this.sdpMlineIndex);
+  const RTCIceCandidate(this.candidate, this.sdpMid, this.sdpMLineIndex);
 
   factory RTCIceCandidate.fromJson(Map<String, dynamic> json) {
     return RTCIceCandidate(
       json['candidate'],
       json['sdpMid'],
-      json['sdpMlineIndex'],
+      json['sdpMLineIndex'],
     );
   }
 
-  Map<String, dynamic> toJson() => {
+  dynamic toJson() => {
         'candidate': candidate,
         'sdpMid': sdpMid,
-        'sdpMLineIndex': sdpMlineIndex,
+        'sdpMLineIndex': sdpMLineIndex,
       };
 
   final String? candidate;
   final String? sdpMid;
-  final int? sdpMlineIndex;
+  final int? sdpMLineIndex;
 }
