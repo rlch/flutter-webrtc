@@ -6,7 +6,7 @@ class RTCSessionDescription {
         json['sdp'],
         json['type'],
       );
-  Map<String, dynamic> toJson() => {
+  dynamic toJson() => {
         'sdp': sdp,
         'type': type,
       };
